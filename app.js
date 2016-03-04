@@ -4,12 +4,26 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var app = express();
+
+var mongoose  = require('mongoose');
+// Connection to DB
+mongoose.connect('mongodb://localhost/api', function(err, res) {
+  if(err) throw err;
+  console.log('Connected to Database');
+});
+
+// Import Models and controllers of mongo
+var models     = require('./models/users')(app, mongoose);
+
+
+/* rutas de la api*/
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var push = require('./routes/push');
 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,8 +37,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// API routes
 app.use('/', routes);
+
 app.use('/users', users);
+
+
 app.use('/push', push);
 
 
