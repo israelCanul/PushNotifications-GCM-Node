@@ -2,10 +2,12 @@
  <html>
  	<head>
  		<meta charset='utf-8'>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.js"></script>
  	</head>
    <body>
       Contenido de la web
-   <form method="post" action="http://localhost:3001/users">
+   <form method="put" action="http://localhost:3001/users/56d9b3284efe7a310391bfa7">
+   <input type="hidden" name="_method" value="PUT">
    Username
    <input  value="" type="text" name="username"><br>
    contraseña
@@ -20,4 +22,15 @@
    	<input type="submit" value="ir">
    </form>
    </body>
+ <script type="text/javascript">
+    $.ajax({
+       url: 'http://example.com/',
+       type: 'PUT',
+       data: 'ID=1&Name=John&Age=10', // or $('#myform').serializeArray()
+       success: function() { alert('PUT completed'); }
+   });
+
+
+ </script>
  </html>
+

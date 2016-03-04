@@ -10,8 +10,8 @@ var UsersCtrl = require('../controllers/users');
 router.get('/',UsersCtrl.findAllUsers);
 /* GET by id */
 router.get('/:id',UsersCtrl.findById);
-
-
+/* PUT by id */
+router.put('/:id',UsersCtrl.updateUser);
 /* POST users listing */
 router.post('/',UsersCtrl.addUser);
 

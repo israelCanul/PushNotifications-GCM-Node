@@ -30,6 +30,7 @@ exports.findById = function(req, res) {
 //POST - Insert a new user in the DB
 exports.addUser = function(req, res) {
 	console.log('POST');
+	// se castea el json de los permisos 
 	var permisos=JSON.parse(req.body.permissions);
 	console.log(permisos);
 
@@ -44,29 +45,32 @@ exports.addUser = function(req, res) {
 	//
 	user.save(function(err, user) {
 		if(err) return res.status(500).send(err.message);
-    	res.status(200).send('this is a petition by get<pre>' + user+'</pre>');
+    	res.status(200).send('New User :<br><pre>' + user+'</pre>');
 	});
 };
 
-/*//PUT - Update a register already exists
-exports.updateTVShow = function(req, res) {
-	TVShow.findById(req.params.id, function(err, tvshow) {
-		tvshow.title   = req.body.petId;
-		tvshow.year    = req.body.year;
-		tvshow.country = req.body.country;
-		tvshow.poster  = req.body.poster;
-		tvshow.seasons = req.body.seasons;
-		tvshow.genre   = req.body.genre;
-		tvshow.summary = req.body.summary;
+//PUT - Update a register already exists
+exports.updateUser = function(req, res) {
+	// se castea el json de  los permisos 
+	var permisos=JSON.parse(req.body.permissions);
 
-		tvshow.save(function(err) {
-			if(err) return res.send(500, err.message);
-      res.status(200).jsonp(tvshow);
+	User.findById(req.params.id, function(err, user) {
+		user.username   	= req.body.username;
+		user.contrasena    	= req.body.contrasena;
+		user.email 			= req.body.email;
+		user.type  			= req.body.tipo;
+		user.active 		= true;
+		user.permissions   	= permissions;
+
+		user.save(function(err) {
+			if(err) return res.send(500, err);
+      		res.status(200).send('User Updated:<br><pre>' + user+'</pre>');
 		});
 	});
+
 };
 
-//DELETE - Delete a TVShow with specified ID
+/*//DELETE - Delete a TVShow with specified ID
 exports.deleteTVShow = function(req, res) {
 	TVShow.findById(req.params.id, function(err, tvshow) {
 		tvshow.remove(function(err) {
