@@ -22,7 +22,7 @@ exports.findAllUsers = function(req, res) {
 exports.findById = function(req, res) {
 	User.findById(req.params.id, function(err, user) {
     	if(err) return res.send(500, err);
-    	console.log('GET /tvshow/' + req.params.id);
+    	console.log('GET /users/' + req.params.id);
 		res.status(200).jsonp(user);
 	});
 };
