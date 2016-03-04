@@ -1,6 +1,6 @@
 # PushNotification-GCM-Node
 <br><br>
-<h1>Proyecto API REST para entrega de contenido (blog y datos en general)</h1>
+<h3>Proyecto API REST para entrega de contenido (blog y datos en general)</h3>
 <br><br>
 Tecnologias usadas:<br>
 -Mongoose para administrar la bd en mongodb<br>
