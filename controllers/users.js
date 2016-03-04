@@ -18,7 +18,7 @@ exports.findAllUsers = function(req, res) {
 	
 };
 
-//GET - Return a TVShow with specified ID
+//GET - Return a User with specified ID
 exports.findById = function(req, res) {
 	User.findById(req.params.id, function(err, user) {
     	if(err) return res.send(500, err);
