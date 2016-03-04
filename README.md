@@ -7,4 +7,8 @@ Tecnologias usadas:<br>
 -Express como framework de node <br>
 -node js de lado del servidor<br>
 
+<br><br>
+Author:<br>
+Israel Canul 
+<br>
 
