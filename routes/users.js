@@ -12,16 +12,9 @@ router.get('/',UsersCtrl.findAllUsers);
 router.get('/:id',UsersCtrl.findById);
 /* PUT by id */
 router.put('/:id',UsersCtrl.updateUser);
-/* POST users listing */
+/* DELETE by id */
+router.delete('/:id',UsersCtrl.deleteUser);
+/* POST to users listing */
 router.post('/',UsersCtrl.addUser);
-
-
-router.post('/[0-9]+', function(req, res, next) {
-	//se deshabilitan las notificaciones 
-	//gcm.notifyDevice('APA91bE1tx1W0EO38J64jrhQady1SWTpW68KgMKFstVZo_UInOWNBCvSJ2s04JooT7TCCgIocHlcT-1xDPSWkj35giQGlweZkpr1iyLVag577buhmsRyr3cfvhltkonNKd_5JR4R2DZb', 'notification title', 'my message');
-  	res.send('respond with a resource3www');
-  	console.log('entro a post');
-});
-
 
 module.exports = router;
