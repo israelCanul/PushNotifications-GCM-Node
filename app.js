@@ -23,7 +23,7 @@ var models     = require('./models/users')(app, mongoose);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var push = require('./routes/push');
+var auth = require('./routes/auth');
 
 
 
@@ -42,11 +42,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // API routes
 app.use('/', routes);
-
 app.use('/users', users);
+app.use('/login',auth);
 
-
-app.use('/push', push);
 
 
 

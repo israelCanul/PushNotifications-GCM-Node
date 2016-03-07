@@ -10,6 +10,7 @@ code:
 //File: controllers/tvshows.js
 var mongoose = require('mongoose');
 var User  = mongoose.model('Users');
+var service = require('../controllers/service');
 
 //GET - Return all Userss in the DB
 exports.findAllUsers = function(req, res) {
@@ -25,7 +26,6 @@ exports.findAllUsers = function(req, res) {
 		}
 		
 	});
-	
 };
 
 //GET - Return a User with specified ID
@@ -51,11 +51,12 @@ exports.addUser = function(req, res) {
 	console.log('POST');
 	// se castea el json de los permisos 
 	var permisos=JSON.parse(req.body.permissions);
-	console.log(permisos);
+    //Encriptamos por medio de una función la contraseña 
+   	var passEncriptada = service.encriptar(req.body.email, req.body.password);
 
 	var user = new User({
 		username: 	  req.body.username,
-		contrasena:  req.body.contrasena,
+		password:  passEncriptada,
 		email:   req.body.email,
 		type:  req.body.tipo,
 		permissions:    permisos,
@@ -77,7 +78,7 @@ exports.updateUser = function(req, res) {
 	console.log(req.body);
 	User.findById(req.params.id, function(err, user) {
 		user.username   	= req.body.username;
-		user.contrasena    	= req.body.contrasena;
+		user.password    	= req.body.password;
 		user.email 			= req.body.email;
 		user.type  			= req.body.tipo;
 		user.active 		= true;

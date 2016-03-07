@@ -7,16 +7,17 @@
    <body>
    ID:<input id="id-to-modify" type="text" name="" value=""><br><br>
       Contenido de la web
-   <form id="myform" method="POST" action="http://localhost:3001/users?_method=POST">
+    <!-- <form id="myform" method="POST" action="http://localhost:3001/users/56dd0b93119b604c10059013?_method=DELETE">  -->
+       <form id="myform" method="POST" action="http://localhost:3001/login"> 
    <input type='hidden' name='_method' value='POST'/>
    Username
    <input  value="" type="text" name="username"><br>
    contraseña
-   <input value="" type="password" name="contrasena"><br>
+   <input value="" type="password" name="password"><br>
    email
    <input value="" type="text" name="email"><br>
    tipo
-   <input value="" type="text" name="tipo"><br>
+   <input value="" type="number" name="tipo"><br>
    permisos
    <input value='{"read":true,"write":true,"update":true,"delete":true,"admin":true}' type="text" name="permissions"><br>
    <input type="submit" value="end" />

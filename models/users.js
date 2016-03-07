@@ -3,7 +3,7 @@ exports = module.exports = function(app, mongoose) {
 
 	var UsersSchema = new mongoose.Schema({
 		username: 		{ type: String },
-		contrasena: 	{ type: String },
+		password: 	{ type: String },
 		email:  	{ type: String },
 		type: 	{ type: Number },
 		permissions: 		{

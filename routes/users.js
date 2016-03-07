@@ -17,4 +17,11 @@ router.delete('/:id',UsersCtrl.deleteUser);
 /* POST to users listing */
 router.post('/',UsersCtrl.addUser);
 
+
+/* POST to users listing */
+router.post('/login',UsersCtrl.addUser);
+
+
+
+
 module.exports = router;
