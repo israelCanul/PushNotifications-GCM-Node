@@ -3,11 +3,11 @@ var router = express.Router();
 var GCMPush = require('gcm-push');
 var gcm = new GCMPush('AIzaSyBw0dGqTqt45R9edV5zT4o-wGYbc5Rca9U'); 
 var UsersCtrl = require('../controllers/users');
-
+var middleware = require('../controllers/middleware');
 
 
 /* GET users listing. */
-router.get('/',UsersCtrl.findAllUsers);
+router.get('/',middleware.ensureAuthenticated,UsersCtrl.findAllUsers);
 /* GET by id */
 router.get('/:id',UsersCtrl.findById);
 /* PUT by id */
@@ -18,8 +18,7 @@ router.delete('/:id',UsersCtrl.deleteUser);
 router.post('/',UsersCtrl.addUser);
 
 
-/* POST to users listing */
-router.post('/login',UsersCtrl.addUser);
+
 
 
 
