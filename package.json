@@ -18,6 +18,8 @@
     "moment": "^2.11.2",
     "mongoose": "^4.4.6",
     "morgan": "~1.6.1",
+    "react-engine": "^3.1.0",
+    "react-router": "^2.0.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
